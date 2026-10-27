@@ -1,6 +1,6 @@
 {
   "meta": {
     "title": "better-dsh",
-    "description": "lizyoko's personal DSH UX improvements: directory links open as a browsable folder tab instead of an empty preview."
+    "description": "lizyoko's personal DSH UX improvements: a browsable folder tab, a Mission Control dashboard, and a font & size panel in Settings."
   }
 }
