@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.1 — 2026-10-29
+
+- Read the saved theme again whenever the Theme Studio panel mounts, so reopening Settings does not show “DSH default” while a custom layer is still active.
+
 ## 0.4.0 — 2026-10-29
 
 新增 **主题工作室**：设置 → 通用。

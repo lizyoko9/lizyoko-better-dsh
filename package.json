@@ -1,6 +1,6 @@
 {
   "name": "lizyoko-better-dsh",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Personal, opinionated UX improvements for the DeepSeek Harness web client: a browsable folder tab, a Mission Control dashboard for running, waiting and scheduled work, and a font settings panel.",
   "keywords": [
     "deepseek-harness",

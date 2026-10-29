@@ -1726,7 +1726,7 @@ window.__ModuleLoader__.load({
       const theme = props.theme;
       const subscribe = typeof props.subscribe === 'function' ? props.subscribe : () => () => {};
       const [snapshot, setSnapshot] = React.useState(() => theme.getTheme());
-      const [selected, setSelected] = React.useState(() => props.initialTheme);
+      const [selected, setSelected] = React.useState(() => (typeof props.getInitialTheme === 'function' ? props.getInitialTheme() : props.initialTheme));
       React.useEffect(() => {
         const update = () => setSnapshot(theme.getTheme());
         update();
@@ -1867,7 +1867,7 @@ window.__ModuleLoader__.load({
           theme,
           subscribe: (listener) => ctx.on('theme/change', listener),
           themes: THEME_FAMILIES,
-          initialTheme: readThemeId(),
+          getInitialTheme: readThemeId,
           applyTheme: (id) => applyTheme(id, true),
           clearTheme: () => clearTheme(true),
           setMode: (id) => theme.setTheme(id)
