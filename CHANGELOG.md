@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.4.2 — 2026-10-29
+
+新增 **玻璃材质**（设置 → 通用 → 材质 · 玻璃）。
+
+- 毛玻璃开关，轻柔 / 标准 / 强三档，独立控制「液态高光」和「环境光斑」。
+- 半透明面板、背景模糊、顶部高光、内描边与环境色光；和任意主题叠加。
+- 透明化主对话/右侧栏根节点，让环境光和桌面透出来；同时保留减少动态效果偏好。
+- 选择保存在当前浏览器；HMR 下即时生效。
+
 ## 0.4.1 — 2026-10-29
 
 - Read the saved theme again whenever the Theme Studio panel mounts, so reopening Settings does not show “DSH default” while a custom layer is still active.

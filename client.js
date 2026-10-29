@@ -141,7 +141,51 @@ window.__ModuleLoader__.load({
       '.bdsh_theme_tag{color:var(--dsw-alias-label-tertiary);font-size:10px;line-height:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}',
       '.bdsh_themes_note{color:var(--dsw-alias-label-tertiary);font-size:11px;line-height:16px}',
       '.bdsh_themes_current{color:var(--dsw-alias-label-secondary);font-size:11px;line-height:16px}',
-      '@media (max-width:520px){.bdsh_themes_grid{grid-template-columns:minmax(0,1fr)}}'
+      '@media (max-width:520px){.bdsh_themes_grid{grid-template-columns:minmax(0,1fr)}}',
+      '.bdsh_glass{box-sizing:border-box;border-top:1px solid var(--dsw-alias-border-l1);flex-direction:column;gap:10px;width:100%;padding:16px 0 0;display:flex}',
+      '.bdsh_glass_head{justify-content:space-between;align-items:center;gap:12px;display:flex}',
+      '.bdsh_glass_titleRow{flex-direction:column;gap:3px;display:flex;min-width:0}',
+      '.bdsh_glass_title{font-size:14px;line-height:20px;font-weight:500}',
+      '.bdsh_glass_desc{color:var(--dsw-alias-label-secondary);font-size:12px;line-height:18px}',
+      '.bdsh_glass_switch{box-sizing:border-box;width:36px;height:21px;border:.5px solid var(--dsw-alias-border-l2);border-radius:999px;background:var(--dsw-alias-bg-layer-2);cursor:pointer;flex:none;padding:2px;transition:background .18s ease,border-color .18s ease}',
+      '.bdsh_glass_switch[aria-checked=true]{background:var(--dsw-alias-state-business-primary);border-color:var(--dsw-alias-state-business-primary)}',
+      '.bdsh_glass_knob{width:15px;height:15px;border-radius:50%;background:var(--dsw-alias-bg-base);box-shadow:0 1px 3px #00000040;transition:transform .18s ease;display:block}',
+      '.bdsh_glass_switch[aria-checked=true] .bdsh_glass_knob{transform:translateX(15px)}',
+      '.bdsh_glass_row{align-items:center;gap:6px;flex-wrap:wrap;display:flex}',
+      '.bdsh_glass_label{color:var(--dsw-alias-label-tertiary);font-size:11px;line-height:16px;white-space:nowrap}',
+      '.bdsh_glass_seg{box-sizing:border-box;border:.5px solid var(--dsw-alias-border-l2);border-radius:6px;background:0 0;color:var(--dsw-alias-label-secondary);cursor:pointer;font:inherit;font-size:11px;height:26px;padding:0 9px;display:inline-flex;align-items:center}',
+      '.bdsh_glass_seg:hover{color:var(--dsw-alias-label-primary);background:var(--dsw-alias-fill-l1)}',
+      '.bdsh_glass_seg[data-selected=true]{border-color:var(--dsw-alias-state-business-primary);color:var(--dsw-alias-label-primary);background:var(--dsw-alias-fill-l1)}',
+      '.bdsh_glass_seg:disabled{opacity:.4;cursor:default;background:0 0;color:var(--dsw-alias-label-secondary)}',
+      '.bdsh_glass_toggle{box-sizing:border-box;border:.5px solid var(--dsw-alias-border-l2);border-radius:6px;background:0 0;color:var(--dsw-alias-label-secondary);cursor:pointer;font:inherit;font-size:11px;height:26px;padding:0 9px;display:inline-flex;align-items:center;gap:5px}',
+      '.bdsh_glass_toggle:hover{color:var(--dsw-alias-label-primary);background:var(--dsw-alias-fill-l1)}',
+      '.bdsh_glass_toggle[aria-pressed=true]{border-color:var(--dsw-alias-state-business-primary);color:var(--dsw-alias-label-primary);background:var(--dsw-alias-fill-l1)}',
+      '.bdsh_glass_dot{width:6px;height:6px;border-radius:50%;background:var(--dsw-alias-label-quaternary);flex:none}',
+      '.bdsh_glass_toggle[aria-pressed=true] .bdsh_glass_dot{background:var(--dsw-alias-state-business-primary)}',
+      '.bdsh_glass_hint{color:var(--dsw-alias-label-tertiary);font-size:11px;line-height:16px}',
+      'body[data-bdsh-glass]{--bdsh-glass-rgb:24,24,32;--bdsh-glass-alpha:.4;--bdsh-glass-border:.2;--bdsh-glass-blur:24px;--bdsh-glass-sat:185%;background-color:#0b0b10!important;background-image:radial-gradient(58% 48% at 10% 6%,color-mix(in srgb,var(--dsw-alias-state-business-primary) 26%,transparent),transparent 62%),radial-gradient(46% 46% at 92% 10%,color-mix(in srgb,#2dd4bf 18%,transparent),transparent 62%),radial-gradient(58% 58% at 54% 104%,color-mix(in srgb,#ec4899 14%,transparent),transparent 66%),linear-gradient(145deg,#0b0b10,#101018 55%,#0b0b10);background-attachment:fixed;position:relative;isolation:isolate}',
+      'body[data-bdsh-glass]:not([data-ds-dark-theme]){--bdsh-glass-rgb:255,255,255;--bdsh-glass-alpha:.52;--bdsh-glass-border:.7;background-color:#eef1f8!important;background-image:radial-gradient(58% 48% at 10% 6%,color-mix(in srgb,var(--dsw-alias-state-business-primary) 16%,transparent),transparent 62%),radial-gradient(46% 46% at 92% 10%,color-mix(in srgb,#2dd4bf 12%,transparent),transparent 62%),radial-gradient(58% 58% at 54% 104%,color-mix(in srgb,#ec4899 10%,transparent),transparent 66%),linear-gradient(145deg,#eef1f8,#f7f8fc 55%,#eef1f8);background-attachment:fixed}',
+      'body[data-bdsh-glass=soft]{--bdsh-glass-alpha:.3;--bdsh-glass-blur:14px;--bdsh-glass-sat:155%}',
+      'body[data-bdsh-glass=medium]{--bdsh-glass-alpha:.4;--bdsh-glass-blur:24px;--bdsh-glass-sat:185%}',
+      'body[data-bdsh-glass=strong]{--bdsh-glass-alpha:.56;--bdsh-glass-blur:36px;--bdsh-glass-sat:210%}',
+      'body[data-bdsh-glass]::before{content:"";position:fixed;inset:-18%;z-index:0;pointer-events:none;opacity:0;transition:opacity .4s ease;background:radial-gradient(34% 34% at 18% 22%,color-mix(in srgb,var(--dsw-alias-state-business-primary) 48%,transparent),transparent 70%),radial-gradient(30% 30% at 82% 16%,color-mix(in srgb,#22d3ee 36%,transparent),transparent 70%),radial-gradient(36% 36% at 58% 90%,color-mix(in srgb,#ec4899 28%,transparent),transparent 72%);filter:blur(70px) saturate(140%);mix-blend-mode:screen}',
+      'body[data-bdsh-glass][data-bdsh-ambience=on]::before{opacity:1;animation:bdshGlassDrift 22s ease-in-out infinite alternate}',
+      'body[data-bdsh-glass][data-bdsh-sheen=on]::after{content:"";position:fixed;inset:-30%;z-index:0;pointer-events:none;background:conic-gradient(from 0deg at 50% 50%,color-mix(in srgb,var(--dsw-alias-state-business-primary) 40%,transparent),transparent 22%,color-mix(in srgb,#22d3ee 28%,transparent) 42%,transparent 64%,color-mix(in srgb,#ec4899 24%,transparent) 82%,color-mix(in srgb,var(--dsw-alias-state-business-primary) 40%,transparent));filter:blur(100px);opacity:.35;mix-blend-mode:screen;animation:bdshGlassSpin 44s linear infinite}',
+      'body[data-bdsh-glass] #root{position:relative;z-index:1}',
+      '@keyframes bdshGlassSpin{to{transform:rotate(360deg)}}',
+      '@keyframes bdshGlassDrift{0%{transform:translate3d(-1.5%,-1%,0) scale(1)}100%{transform:translate3d(1.5%,1%,0) scale(1.08)}}',
+      'body[data-bdsh-glass] [class*="_frame"]{background:transparent!important}',
+      'body[data-bdsh-glass] [class*="_centerCol"]{background:transparent!important}',
+      'body[data-bdsh-glass] [data-slot="main.conversation"] > *,body[data-bdsh-glass] [data-slot="rightbar"] > *{background:transparent!important}',
+      'body[data-bdsh-glass] [class*="_sidebarCol"]{background:rgba(var(--bdsh-glass-rgb),calc(var(--bdsh-glass-alpha) + .08))!important;backdrop-filter:blur(var(--bdsh-glass-blur)) saturate(var(--bdsh-glass-sat));-webkit-backdrop-filter:blur(var(--bdsh-glass-blur)) saturate(var(--bdsh-glass-sat));box-shadow:inset -1px 0 0 rgba(255,255,255,.06)}',
+      'body[data-bdsh-glass] [class*="_rightbarCol"]{background:rgba(var(--bdsh-glass-rgb),calc(var(--bdsh-glass-alpha) + .06))!important;backdrop-filter:blur(var(--bdsh-glass-blur)) saturate(var(--bdsh-glass-sat));-webkit-backdrop-filter:blur(var(--bdsh-glass-blur)) saturate(var(--bdsh-glass-sat));box-shadow:inset 1px 0 0 rgba(255,255,255,.06)}',
+      'body[data-bdsh-glass] [class*="_header"]{backdrop-filter:blur(calc(var(--bdsh-glass-blur) * .7)) saturate(var(--bdsh-glass-sat));-webkit-backdrop-filter:blur(calc(var(--bdsh-glass-blur) * .7)) saturate(var(--bdsh-glass-sat))}',
+      'body[data-bdsh-glass] [class*="_card"],body[data-bdsh-glass] [role=dialog],body[data-bdsh-glass] [role=menu],body[data-bdsh-glass] [role=listbox],body[data-bdsh-glass] [data-radix-popper-content-wrapper]>*{background-color:rgba(var(--bdsh-glass-rgb),var(--bdsh-glass-alpha))!important;background-image:linear-gradient(135deg,rgba(255,255,255,calc(var(--bdsh-glass-border) * 1.8)) 0%,rgba(255,255,255,.05) 42%,transparent 68%)!important;backdrop-filter:blur(var(--bdsh-glass-blur)) saturate(var(--bdsh-glass-sat))!important;-webkit-backdrop-filter:blur(var(--bdsh-glass-blur)) saturate(var(--bdsh-glass-sat))!important;box-shadow:0 18px 50px rgba(0,0,0,.22),inset 0 0 0 1px rgba(255,255,255,var(--bdsh-glass-border)),inset 0 1px 0 rgba(255,255,255,.32)!important}',
+      'body[data-bdsh-glass]:not([data-ds-dark-theme]) [class*="_card"],body[data-bdsh-glass]:not([data-ds-dark-theme]) [role=dialog],body[data-bdsh-glass]:not([data-ds-dark-theme]) [role=menu],body[data-bdsh-glass]:not([data-ds-dark-theme]) [role=listbox],body[data-bdsh-glass]:not([data-ds-dark-theme]) [data-radix-popper-content-wrapper]>*{box-shadow:0 18px 50px rgba(31,41,55,.12),inset 0 0 0 1px rgba(255,255,255,.72),inset 0 1px 0 rgba(255,255,255,.9)!important}',
+      'body[data-bdsh-glass] [data-slot="conversation.composer.bar"] [class*="_card"]{background-color:rgba(var(--bdsh-glass-rgb),calc(var(--bdsh-glass-alpha) + .04))!important;box-shadow:0 24px 70px rgba(0,0,0,.34),inset 0 0 0 1px rgba(255,255,255,calc(var(--bdsh-glass-border) + .08)),inset 0 1px 0 rgba(255,255,255,.3)!important}',
+      'body[data-bdsh-glass][data-bdsh-sheen=on] [class*="_card"]{background-size:220% 220%;animation:bdshGlassSheen 16s ease-in-out infinite alternate}',
+      '@keyframes bdshGlassSheen{0%{background-position:0% 0%}100%{background-position:100% 100%}}',
+      '@media (prefers-reduced-motion:reduce){body[data-bdsh-glass][data-bdsh-ambience=on]::before,body[data-bdsh-glass][data-bdsh-sheen=on] [class*="_card"]{animation:none}}'
     ].join('\n');
     const CSS_TAG_ID = PACKAGE_ID + '/better-dsh.css';
     if (typeof document !== 'undefined') {
@@ -230,7 +274,17 @@ window.__ModuleLoader__.load({
       'themes.adaptive': '亮/暗自适应',
       'themes.current': '当前主题：{name}',
       'themes.defaultCurrent': '当前主题：DSH 默认',
-      'themes.note': '自定义主题保存在本浏览器；亮/暗模式仍由 DSH 设置同步。'
+      'themes.note': '自定义主题保存在本浏览器；亮/暗模式仍由 DSH 设置同步。',
+      'glass.title': '材质 · 玻璃',
+      'glass.description': '半透明表面、背景模糊与液态高光；可与任意主题叠加。',
+      'glass.enabled': '毛玻璃',
+      'glass.intensity': '强度',
+      'glass.soft': '轻柔',
+      'glass.medium': '标准',
+      'glass.strong': '强',
+      'glass.sheen': '液态高光',
+      'glass.ambience': '环境光斑',
+      'glass.hint': '背景模糊需要 GPU 加速；低配设备建议用轻柔或关闭环境光斑。'
     };
     const en = {
       title: 'Folder',
@@ -303,7 +357,17 @@ window.__ModuleLoader__.load({
       'themes.adaptive': 'Adapts to light/dark',
       'themes.current': 'Theme: {name}',
       'themes.defaultCurrent': 'Theme: DSH default',
-      'themes.note': 'Custom themes are stored in this browser; light/dark mode still follows DSH settings.'
+      'themes.note': 'Custom themes are stored in this browser; light/dark mode still follows DSH settings.',
+      'glass.title': 'Material · Glass',
+      'glass.description': 'Translucent surfaces, backdrop blur and liquid highlights; combines with any theme.',
+      'glass.enabled': 'Frosted glass',
+      'glass.intensity': 'Intensity',
+      'glass.soft': 'Soft',
+      'glass.medium': 'Regular',
+      'glass.strong': 'Strong',
+      'glass.sheen': 'Liquid sheen',
+      'glass.ambience': 'Ambient glow',
+      'glass.hint': 'Backdrop blur uses the GPU; use Soft or disable ambient glow on slower machines.'
     };
     //#endregion
 
@@ -1698,6 +1762,51 @@ window.__ModuleLoader__.load({
       }
     ];
 
+    const GLASS_STORAGE_KEY = 'better-dsh.glass.v1';
+    const DEFAULT_GLASS = Object.freeze({ enabled: false, intensity: 'medium', sheen: true, ambience: true });
+
+    function normalizeGlass(value) {
+      const source = value !== null && typeof value === 'object' ? value : {};
+      const intensity = source.intensity === 'soft' || source.intensity === 'strong' ? source.intensity : 'medium';
+      return {
+        enabled: source.enabled === true,
+        intensity,
+        sheen: source.sheen !== false,
+        ambience: source.ambience !== false
+      };
+    }
+
+    function readGlass() {
+      try {
+        const raw = globalThis.localStorage?.getItem(GLASS_STORAGE_KEY);
+        return raw === null || raw === undefined ? { ...DEFAULT_GLASS } : normalizeGlass(JSON.parse(raw));
+      } catch {
+        return { ...DEFAULT_GLASS };
+      }
+    }
+
+    function writeGlass(value) {
+      try {
+        globalThis.localStorage?.setItem(GLASS_STORAGE_KEY, JSON.stringify(value));
+      } catch {
+        // The material still applies for this session without persistence.
+      }
+    }
+
+    function applyGlass(value) {
+      if (typeof document === 'undefined' || document.body == null) return;
+      const body = document.body;
+      if (!value.enabled) {
+        delete body.dataset.bdshGlass;
+        delete body.dataset.bdshSheen;
+        delete body.dataset.bdshAmbience;
+        return;
+      }
+      body.dataset.bdshGlass = value.intensity;
+      body.dataset.bdshSheen = value.sheen ? 'on' : 'off';
+      body.dataset.bdshAmbience = value.ambience ? 'on' : 'off';
+    }
+
     function readThemeId() {
       try {
         const value = globalThis.localStorage?.getItem(THEME_STORAGE_KEY);
@@ -1727,6 +1836,7 @@ window.__ModuleLoader__.load({
       const subscribe = typeof props.subscribe === 'function' ? props.subscribe : () => () => {};
       const [snapshot, setSnapshot] = React.useState(() => theme.getTheme());
       const [selected, setSelected] = React.useState(() => (typeof props.getInitialTheme === 'function' ? props.getInitialTheme() : props.initialTheme));
+      const [glass, setGlassState] = React.useState(() => (typeof props.getGlass === 'function' ? props.getGlass() : { ...DEFAULT_GLASS }));
       React.useEffect(() => {
         const update = () => setSnapshot(theme.getTheme());
         update();
@@ -1749,6 +1859,15 @@ window.__ModuleLoader__.load({
           props.setMode(id);
         } catch (error) {
           console.error('better-dsh: could not change color scheme', error);
+        }
+      };
+      const updateGlass = (patch) => {
+        const next = { ...glass, ...patch };
+        setGlassState(next);
+        try {
+          props.setGlass(next);
+        } catch (error) {
+          console.error('better-dsh: could not apply glass material', error);
         }
       };
 
@@ -1807,7 +1926,54 @@ window.__ModuleLoader__.load({
         h('div', { className: 'bdsh_themes_current' },
           current === undefined ? t('themes.defaultCurrent') : t('themes.current', { name: current.name })
         ),
-        h('div', { className: 'bdsh_themes_note' }, t('themes.note'))
+        h('div', { className: 'bdsh_themes_note' }, t('themes.note')),
+        h('div', { className: 'bdsh_glass', 'data-better-dsh': 'glass' },
+          h('div', { className: 'bdsh_glass_head' },
+            h('div', { className: 'bdsh_glass_titleRow' },
+              h('span', { className: 'bdsh_glass_title' }, t('glass.title')),
+              h('span', { className: 'bdsh_glass_desc' }, t('glass.description'))
+            ),
+            h('button', {
+              type: 'button',
+              className: 'bdsh_glass_switch',
+              role: 'switch',
+              'aria-checked': glass.enabled,
+              'aria-label': t('glass.enabled'),
+              title: t('glass.enabled'),
+              onClick: () => updateGlass({ enabled: !glass.enabled })
+            }, h('span', { className: 'bdsh_glass_knob' }))
+          ),
+          h('div', { className: 'bdsh_glass_row' },
+            h('span', { className: 'bdsh_glass_label' }, t('glass.intensity')),
+            [['soft', 'glass.soft'], ['medium', 'glass.medium'], ['strong', 'glass.strong']].map(([id, key]) =>
+              h('button', {
+                key: id,
+                type: 'button',
+                className: 'bdsh_glass_seg',
+                'data-selected': glass.intensity === id,
+                disabled: !glass.enabled,
+                onClick: () => updateGlass({ intensity: id })
+              }, t(key))
+            )
+          ),
+          h('div', { className: 'bdsh_glass_row' },
+            h('button', {
+              type: 'button',
+              className: 'bdsh_glass_toggle',
+              'aria-pressed': glass.sheen,
+              disabled: !glass.enabled,
+              onClick: () => updateGlass({ sheen: !glass.sheen })
+            }, h('span', { className: 'bdsh_glass_dot' }), t('glass.sheen')),
+            h('button', {
+              type: 'button',
+              className: 'bdsh_glass_toggle',
+              'aria-pressed': glass.ambience,
+              disabled: !glass.enabled,
+              onClick: () => updateGlass({ ambience: !glass.ambience })
+            }, h('span', { className: 'bdsh_glass_dot' }), t('glass.ambience'))
+          ),
+          h('div', { className: 'bdsh_glass_hint' }, t('glass.hint'))
+        )
       );
     }
 
@@ -1818,6 +1984,8 @@ window.__ModuleLoader__.load({
       if (typeof theme.overrideTokens !== 'function' || typeof theme.setTheme !== 'function' || typeof theme.getTheme !== 'function') return;
 
       let layer;
+      let glass = readGlass();
+      applyGlass(glass);
       const applyTheme = (id, persist) => {
         const family = THEME_FAMILIES.find((item) => item.id === id);
         if (family === undefined) return false;
@@ -1853,6 +2021,13 @@ window.__ModuleLoader__.load({
         }
       }, 'better-dsh: theme layer');
 
+      ctx.effect(() => () => {
+        if (typeof document === 'undefined' || document.body == null) return;
+        delete document.body.dataset.bdshGlass;
+        delete document.body.dataset.bdshSheen;
+        delete document.body.dataset.bdshAmbience;
+      }, 'better-dsh: glass material');
+
       const saved = readThemeId();
       if (saved !== undefined) {
         if (!applyTheme(saved, false)) writeThemeId(undefined);
@@ -1870,7 +2045,13 @@ window.__ModuleLoader__.load({
           getInitialTheme: readThemeId,
           applyTheme: (id) => applyTheme(id, true),
           clearTheme: () => clearTheme(true),
-          setMode: (id) => theme.setTheme(id)
+          setMode: (id) => theme.setTheme(id),
+          getGlass: readGlass,
+          setGlass: (value) => {
+            glass = normalizeGlass(value);
+            applyGlass(glass);
+            writeGlass(glass);
+          }
         })
       }, ThemeStudioPanel)), 'better-dsh: theme studio');
     }

@@ -44,6 +44,14 @@ Settings → General now has an Obsidian-style theme gallery:
 - The theme is an alias-token layer applied through `ctx.theme.overrideTokens`; DSH's own light/dark/system preference stays authoritative and the palette follows the OS scheme.
 - A "DSH default" card removes the layer. The selected custom theme is remembered in this browser.
 
+### Glass material
+
+Theme Studio also has a **Material · Glass** section:
+
+- Toggle frosted glass, pick Soft / Regular / Strong, and optionally enable Liquid sheen and Ambient glow.
+- The glass layer adds translucent panels, backdrop blur, a specular top edge and an ambient color field behind the UI; it composes with every theme.
+- Stored per browser. Backdrop blur is GPU-heavy; use Soft or disable ambient glow on slower machines.
+
 ## Install
 
 Install from the **Plugins** page with:
