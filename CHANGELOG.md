@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.4.0 — 2026-10-29
+
+新增 **主题工作室**：设置 → 通用。
+
+- 六套主题：Obsidian、Nord、Catppuccin、Rosé Pine、Tokyo Night、Solarized，每套都有亮色/暗色变体。
+- 通过 `ctx.theme.overrideTokens` 应用别名 token 层，不改变 DSH 的亮色/暗色/系统偏好；系统切换时主题自动跟随。
+- 「DSH 默认」移除覆盖层；自定义主题保存在当前浏览器。
+
 ## 0.3.0 — 2026-10-28
 
 新增 **字体与字号** 设置项：设置 → 通用。

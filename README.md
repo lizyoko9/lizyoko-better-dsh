@@ -36,6 +36,14 @@ Some 0.2 builds do not render the built-in "More font settings" row. This plugin
 - Reset clears the three families and restores 14 / 11 / 13 px.
 - Writes through DSH's own `ui-theme` settings, so it persists and applies immediately.
 
+### Theme Studio
+
+Settings → General now has an Obsidian-style theme gallery:
+
+- Obsidian, Nord, Catppuccin, Rosé Pine, Tokyo Night and Solarized, each with light and dark variants.
+- The theme is an alias-token layer applied through `ctx.theme.overrideTokens`; DSH's own light/dark/system preference stays authoritative and the palette follows the OS scheme.
+- A "DSH default" card removes the layer. The selected custom theme is remembered in this browser.
+
 ## Install
 
 Install from the **Plugins** page with:

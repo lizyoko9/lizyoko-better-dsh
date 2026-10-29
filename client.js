@@ -119,7 +119,29 @@ window.__ModuleLoader__.load({
       '.bdsh_fonts_input{box-sizing:border-box;border:.5px solid var(--dsw-alias-border-l2);border-radius:6px;background:var(--dsw-alias-bg-layer-1);width:100%;min-width:0;height:30px;color:var(--dsw-alias-label-primary);font:inherit;font-size:12px;line-height:18px;outline:none;padding:0 8px}',
       '.bdsh_fonts_input:focus{border-color:var(--dsw-alias-state-business-primary);box-shadow:0 0 0 2px color-mix(in srgb, var(--dsw-alias-state-business-primary) 18%, transparent)}',
       '.bdsh_fonts_input::placeholder{color:var(--dsw-alias-label-quaternary)}',
-      '.bdsh_fonts_size{text-align:center;font-variant-numeric:tabular-nums;padding:0 4px}'
+      '.bdsh_fonts_size{text-align:center;font-variant-numeric:tabular-nums;padding:0 4px}',
+      '.bdsh_themes{box-sizing:border-box;border-top:1px solid var(--dsw-alias-border-l1);flex-direction:column;gap:12px;width:100%;padding:16px 0;display:flex}',
+      '.bdsh_themes_head{flex-direction:column;gap:3px;display:flex}',
+      '.bdsh_themes_title{font-size:14px;line-height:20px;font-weight:500}',
+      '.bdsh_themes_desc{color:var(--dsw-alias-label-secondary);font-size:12px;line-height:18px}',
+      '.bdsh_themes_modes{display:flex;align-items:center;gap:6px;flex-wrap:wrap}',
+      '.bdsh_themes_mode{box-sizing:border-box;border:.5px solid var(--dsw-alias-border-l2);border-radius:6px;background:0 0;color:var(--dsw-alias-label-secondary);cursor:pointer;font:inherit;font-size:12px;height:28px;padding:0 10px;display:inline-flex;align-items:center;justify-content:center}',
+      '.bdsh_themes_mode:hover{color:var(--dsw-alias-label-primary);background:var(--dsw-alias-fill-l1)}',
+      '.bdsh_themes_mode[data-selected=true]{border-color:var(--dsw-alias-state-business-primary);color:var(--dsw-alias-label-primary);background:var(--dsw-alias-fill-l1)}',
+      '.bdsh_themes_grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}',
+      '.bdsh_theme_card{box-sizing:border-box;min-width:0;color:inherit;text-align:left;cursor:pointer;background:0 0;border:.5px solid var(--dsw-alias-border-l1);border-radius:9px;padding:0;font:inherit;display:flex;flex-direction:column;overflow:hidden}',
+      '.bdsh_theme_card:hover{border-color:var(--dsw-alias-border-l2);background:var(--dsw-alias-fill-l1)}',
+      '.bdsh_theme_card[data-selected=true]{border-color:var(--dsw-alias-state-business-primary);box-shadow:0 0 0 1px var(--dsw-alias-state-business-primary) inset}',
+      '.bdsh_theme_card[data-default=true]{grid-column:1/-1;flex-direction:row;align-items:center}',
+      '.bdsh_theme_preview{display:flex;height:30px;flex:none;width:100%;overflow:hidden}',
+      '.bdsh_theme_swatch{flex:1 1 0;min-width:0}',
+      '.bdsh_theme_body{display:flex;flex-direction:column;gap:2px;padding:7px 9px 8px;min-width:0}',
+      '.bdsh_theme_card[data-default=true] .bdsh_theme_body{flex:1 1 auto}',
+      '.bdsh_theme_name{font-size:12px;line-height:17px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}',
+      '.bdsh_theme_tag{color:var(--dsw-alias-label-tertiary);font-size:10px;line-height:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}',
+      '.bdsh_themes_note{color:var(--dsw-alias-label-tertiary);font-size:11px;line-height:16px}',
+      '.bdsh_themes_current{color:var(--dsw-alias-label-secondary);font-size:11px;line-height:16px}',
+      '@media (max-width:520px){.bdsh_themes_grid{grid-template-columns:minmax(0,1fr)}}'
     ].join('\n');
     const CSS_TAG_ID = PACKAGE_ID + '/better-dsh.css';
     if (typeof document !== 'undefined') {
@@ -197,7 +219,18 @@ window.__ModuleLoader__.load({
       'fonts.size': '字号',
       'fonts.placeholder': '默认',
       'fonts.reset': '恢复默认',
-      'fonts.resetHint': '清空字体并恢复默认字号'
+      'fonts.resetHint': '清空字体并恢复默认字号',
+      'themes.title': '主题',
+      'themes.description': '像 Obsidian 一样切换整套配色；主题与亮/暗模式相互独立。',
+      'themes.system': '跟随系统',
+      'themes.light': '亮色',
+      'themes.dark': '暗色',
+      'themes.default': 'DSH 默认',
+      'themes.defaultTag': '不覆盖任何颜色',
+      'themes.adaptive': '亮/暗自适应',
+      'themes.current': '当前主题：{name}',
+      'themes.defaultCurrent': '当前主题：DSH 默认',
+      'themes.note': '自定义主题保存在本浏览器；亮/暗模式仍由 DSH 设置同步。'
     };
     const en = {
       title: 'Folder',
@@ -259,7 +292,18 @@ window.__ModuleLoader__.load({
       'fonts.size': 'Size',
       'fonts.placeholder': 'Default',
       'fonts.reset': 'Reset',
-      'fonts.resetHint': 'Clear fonts and restore default sizes'
+      'fonts.resetHint': 'Clear fonts and restore default sizes',
+      'themes.title': 'Themes',
+      'themes.description': 'Switch whole palettes, Obsidian-style; the theme is independent of light/dark mode.',
+      'themes.system': 'System',
+      'themes.light': 'Light',
+      'themes.dark': 'Dark',
+      'themes.default': 'DSH default',
+      'themes.defaultTag': 'No color overrides',
+      'themes.adaptive': 'Adapts to light/dark',
+      'themes.current': 'Theme: {name}',
+      'themes.defaultCurrent': 'Theme: DSH default',
+      'themes.note': 'Custom themes are stored in this browser; light/dark mode still follows DSH settings.'
     };
     //#endregion
 
@@ -1480,12 +1524,366 @@ window.__ModuleLoader__.load({
     }
     //#endregion font settings
 
+    //#region theme studio
+    /** Browser-local selection for the optional theme layer. */
+    const THEME_STORAGE_KEY = 'better-dsh.theme.v1';
+
+    /**
+     * Build the alias-token layer for one palette. Tokens not listed here fall
+     * back to the active built-in light/dark base, so themes stay compatible
+     * with DSH upgrades that add new tokens.
+     */
+    function themeTokens(p) {
+      const mix = (value, percent) => 'color-mix(in srgb, ' + value + ' ' + percent + '%, transparent)';
+      return {
+        '--dsw-alias-bg-base': p.bg,
+        '--dsw-alias-bg-layer-1': p.surface,
+        '--dsw-alias-bg-layer-2': p.surface2,
+        '--dsw-alias-bg-layer-3': p.surface3,
+        '--dsw-alias-bg-overlay': p.surface2,
+        '--dsw-alias-bg-module-platform': p.bg,
+        '--dsw-alias-bg-skeleton': p.surface2,
+        '--dsw-alias-bg-mask-1': p.mask,
+        '--dsw-alias-bg-mask-2': p.mask,
+        '--dsw-alias-bg-mask-3': p.mask,
+        '--dsw-alias-bg-mask-drop': p.mask,
+        '--dsw-alias-bg-mask-photo': p.mask,
+        '--dsw-alias-bg-multi-select': p.surface3,
+        '--dsw-alias-fill-l1': p.surface2,
+        '--dsw-alias-fill-l2': p.surface3,
+        '--dsw-alias-border-l1': p.border,
+        '--dsw-alias-border-l2': p.borderStrong,
+        '--dsw-alias-border-l3': p.borderStrong,
+        '--dsw-alias-border-l4': p.borderStrong,
+        '--dsw-alias-border-inverted': p.borderStrong,
+        '--dsw-alias-border-inverted2': p.borderStrong,
+        '--dsw-alias-label-primary': p.text,
+        '--dsw-alias-label-secondary': p.muted,
+        '--dsw-alias-label-tertiary': p.faint,
+        '--dsw-alias-label-quaternary': p.faint,
+        '--dsw-alias-label-caption': p.faint,
+        '--dsw-alias-label-dimmed': p.faint,
+        '--dsw-alias-label-primary-dimmed': p.muted,
+        '--dsw-alias-label-primary-bluish': p.text,
+        '--dsw-alias-label-primary-foreground': p.onAccent,
+        '--dsw-alias-label-primary-inverted': p.bg,
+        '--dsw-alias-label-inverted': p.bg,
+        '--dsw-alias-state-business-primary': p.accent,
+        '--dsw-alias-state-business-tertiary': p.surface3,
+        '--dsw-alias-brand-primary': p.accent,
+        '--dsw-alias-brand-text': p.accent,
+        '--dsw-alias-link': p.accent,
+        '--dsw-alias-state-success-primary': p.success,
+        '--dsw-alias-state-success-secondary': mix(p.success, 55),
+        '--dsw-alias-state-success-tertiary': mix(p.success, 22),
+        '--dsw-alias-state-warn-primary': p.warn,
+        '--dsw-alias-state-warn-secondary': mix(p.warn, 55),
+        '--dsw-alias-state-warn-tertiary': mix(p.warn, 22),
+        '--dsw-alias-state-warn-label': p.bg,
+        '--dsw-alias-state-error-primary': p.danger,
+        '--dsw-alias-state-error-secondary': mix(p.danger, 55),
+        '--dsw-alias-state-idle-primary': p.muted,
+        '--dsw-alias-button-primary-fill': p.accent,
+        '--dsw-alias-button-primary-hover': p.accentHover,
+        '--dsw-alias-button-primary-dimmed': p.surface3,
+        '--dsw-alias-button-info-fill': p.surface2,
+        '--dsw-alias-button-info-hover': p.surface3,
+        '--dsw-alias-button-contrast-fill': p.text,
+        '--dsw-alias-button-elevated-fill': p.surface2,
+        '--dsw-alias-button-floating-fill': p.surface2,
+        '--dsw-alias-button-floating-hover': p.surface3,
+        '--dsw-alias-button-tool-bar-fill': p.surface2,
+        '--dsw-alias-button-tool-bar-hover': p.surface3,
+        '--dsw-alias-button-ghost-active-fill': p.surface2,
+        '--dsw-alias-button-ghost-active-hover': p.surface3,
+        '--dsw-alias-button-ghost-active-border': p.borderStrong,
+        '--dsw-alias-interactive-bg-hover': p.surface2,
+        '--dsw-alias-interactive-bg-active': p.surface3,
+        '--dsw-alias-interactive-bg-hover-solid': p.surface2,
+        '--dsw-alias-interactive-bg-hover-accent': mix(p.accent, 16),
+        '--dsw-alias-interactive-bg-hover-danger': mix(p.danger, 14),
+        '--dsw-alias-settings-card-fill': p.surface,
+        '--dsw-alias-settings-card-stroke': p.border,
+        '--dsw-alias-bg-document-preview': p.surface,
+        '--dsw-alias-label-document-preview': p.muted,
+        '--dsw-alias-bg-document-selection': mix(p.accent, 38),
+        '--dsw-alias-markdown-code-block': p.surface,
+        '--dsw-alias-markdown-code-block-banner': p.surface2,
+        '--dsw-alias-markdown-inline-code': p.surface2,
+        '--dsw-alias-markdown-code-segment-selected': p.surface3,
+        '--dsw-alias-markdown-code-segment-unselected': p.surface,
+        '--dsw-alias-markdown-placeholder': p.faint,
+        '--dsw-alias-markdown-tag': p.surface3,
+        '--dsw-alias-markdown-citation': p.accent,
+        '--dsw-alias-menu-icon': p.text,
+        '--dsw-alias-menu-group-header-fill': p.surface2,
+        '--dsw-alias-scrollbar-bg-l1': p.surface2,
+        '--dsw-alias-scrollbar-bg-l2': p.surface3,
+        '--dsw-alias-scrollbar-hover-l1': p.surface3,
+        '--dsw-alias-scrollbar-hover-l2': p.borderStrong,
+        '--dsw-alias-label-shimmer': mix(p.text, 35),
+        '--dsw-alias-label-deep-diving': p.accent,
+        '--dsw-alias-label-deep-diving-shimmer': mix(p.accent, 50),
+        '--dsw-alias-focus-ring-color': p.accent,
+        '--dsw-alias-tooltip-key-bg': p.surface3,
+        '--dsw-alias-toast-bg': p.surface2,
+        '--dsw-alias-toast-label': p.text,
+        '--dsw-alias-switch-thumb': p.onAccent,
+        '--dsw-alias-onboarding-accent': p.accent,
+        '--dsw-alias-onboarding-card-fill': p.surface,
+        '--dsw-alias-onboarding-secondary-fill': p.surface2,
+        '--dsw-alias-onboarding-checkbox-border': p.borderStrong,
+        '--dsw-specific-sidebar-fill': p.surface,
+        '--dsw-specific-sidebar-nav-item-active': p.surface2,
+        '--dsw-specific-sidebar-nav-item-active-accent': p.accent,
+        '--dsw-specific-sidebar-nav-item-hover': p.surface2,
+        '--dsw-specific-menu': p.surface2,
+        '--dsw-specific-input-major': p.surface,
+        '--dsw-specific-selector': p.surface2,
+        '--dsw-specific-bubble': p.surface2,
+        '--dsw-specific-bubble-highlight': p.surface3,
+        '--dsw-specific-tip': p.surface2,
+        '--dsw-specific-login-input': p.surface
+      };
+    }
+
+    /** Convert one family into the `{ light, dark }` pairs the theme layer expects. */
+    function themePairs(family) {
+      const light = themeTokens(family.light);
+      const dark = themeTokens(family.dark);
+      const pairs = {};
+      for (const name of new Set([...Object.keys(light), ...Object.keys(dark)])) {
+        pairs[name] = { light: light[name], dark: dark[name] };
+      }
+      return pairs;
+    }
+
+    /** Theme families shipped by Better DSH. Names are intentionally short. */
+    const THEME_FAMILIES = [
+      {
+        id: 'obsidian',
+        name: 'Obsidian',
+        light: { bg: '#ffffff', surface: '#f6f6f6', surface2: '#ededed', surface3: '#e0e0e0', text: '#1f1f1f', muted: '#5f5f5f', faint: '#8a8a8a', border: '#e0e0e0', borderStrong: '#cfcfcf', accent: '#7c3aed', accentHover: '#6d28d9', onAccent: '#ffffff', success: '#2f9e44', warn: '#b7791f', danger: '#d64545', mask: 'rgba(0,0,0,.18)' },
+        dark: { bg: '#1e1e1e', surface: '#262626', surface2: '#2f2f2f', surface3: '#3a3a3a', text: '#dadada', muted: '#a3a3a3', faint: '#7a7a7a', border: '#3a3a3a', borderStrong: '#4a4a4a', accent: '#a882ff', accentHover: '#b79cff', onAccent: '#1a1a1a', success: '#7bd88f', warn: '#e8c07d', danger: '#ff6b6b', mask: 'rgba(0,0,0,.5)' }
+      },
+      {
+        id: 'nord',
+        name: 'Nord',
+        light: { bg: '#eceff4', surface: '#e5e9f0', surface2: '#d8dee9', surface3: '#c8d0dd', text: '#2e3440', muted: '#4c566a', faint: '#6b7280', border: '#c8d0dd', borderStrong: '#b0bccd', accent: '#5e81ac', accentHover: '#4c6f99', onAccent: '#ffffff', success: '#4f8a5b', warn: '#b48a2f', danger: '#bf616a', mask: 'rgba(0,0,0,.18)' },
+        dark: { bg: '#2e3440', surface: '#343b49', surface2: '#3b4252', surface3: '#434c5e', text: '#eceff4', muted: '#d8dee9', faint: '#aab4c4', border: '#434c5e', borderStrong: '#4c566a', accent: '#88c0d0', accentHover: '#9fd0dd', onAccent: '#1b1f27', success: '#a3be8c', warn: '#ebcb8b', danger: '#bf616a', mask: 'rgba(0,0,0,.5)' }
+      },
+      {
+        id: 'catppuccin',
+        name: 'Catppuccin',
+        light: { bg: '#eff1f5', surface: '#e6e9ef', surface2: '#dce0e8', surface3: '#ccd0da', text: '#4c4f69', muted: '#6c6f85', faint: '#8c8fa1', border: '#ccd0da', borderStrong: '#bcc0cc', accent: '#8839ef', accentHover: '#7527d8', onAccent: '#ffffff', success: '#40a02b', warn: '#df8e1d', danger: '#d20f39', mask: 'rgba(0,0,0,.18)' },
+        dark: { bg: '#1e1e2e', surface: '#252537', surface2: '#313244', surface3: '#45475a', text: '#cdd6f4', muted: '#a6adc8', faint: '#7f849c', border: '#45475a', borderStrong: '#585b70', accent: '#cba6f7', accentHover: '#d7b9ff', onAccent: '#1e1e2e', success: '#a6e3a1', warn: '#f9e2af', danger: '#f38ba8', mask: 'rgba(0,0,0,.5)' }
+      },
+      {
+        id: 'rose-pine',
+        name: 'Rosé Pine',
+        light: { bg: '#faf4ed', surface: '#fffaf3', surface2: '#f2e9e1', surface3: '#e4d7cf', text: '#575279', muted: '#797593', faint: '#9893a5', border: '#e4d7cf', borderStrong: '#d6c7bd', accent: '#d7827e', accentHover: '#c46c68', onAccent: '#ffffff', success: '#56949f', warn: '#ea9d34', danger: '#b4637a', mask: 'rgba(0,0,0,.18)' },
+        dark: { bg: '#191724', surface: '#1f1d2e', surface2: '#26233a', surface3: '#403d52', text: '#e0def4', muted: '#908caa', faint: '#6e6a86', border: '#403d52', borderStrong: '#524f67', accent: '#ebbcba', accentHover: '#f0c9c7', onAccent: '#191724', success: '#9ccfd8', warn: '#f6c177', danger: '#eb6f92', mask: 'rgba(0,0,0,.5)' }
+      },
+      {
+        id: 'tokyo-night',
+        name: 'Tokyo Night',
+        light: { bg: '#e1e2e7', surface: '#d5d6db', surface2: '#c8c9ce', surface3: '#b8b9be', text: '#3760bf', muted: '#6172b0', faint: '#8990b3', border: '#c8c9ce', borderStrong: '#b0b1b6', accent: '#2e7de9', accentHover: '#1f6ad6', onAccent: '#ffffff', success: '#587539', warn: '#8c6c3e', danger: '#f52a65', mask: 'rgba(0,0,0,.18)' },
+        dark: { bg: '#1a1b26', surface: '#1f2335', surface2: '#24283b', surface3: '#2f3549', text: '#c0caf5', muted: '#a9b1d6', faint: '#737aa2', border: '#2f3549', borderStrong: '#3b4261', accent: '#7aa2f7', accentHover: '#8fb0ff', onAccent: '#16161e', success: '#9ece6a', warn: '#e0af68', danger: '#f7768e', mask: 'rgba(0,0,0,.5)' }
+      },
+      {
+        id: 'solarized',
+        name: 'Solarized',
+        light: { bg: '#fdf6e3', surface: '#eee8d5', surface2: '#e4ddc8', surface3: '#d8d0b8', text: '#073642', muted: '#586e75', faint: '#839496', border: '#d8d0b8', borderStrong: '#c9c0a6', accent: '#268bd2', accentHover: '#1a7bbd', onAccent: '#ffffff', success: '#859900', warn: '#b58900', danger: '#dc322f', mask: 'rgba(0,0,0,.18)' },
+        dark: { bg: '#002b36', surface: '#073642', surface2: '#0b3f4b', surface3: '#14505c', text: '#eee8d5', muted: '#93a1a1', faint: '#657b83', border: '#14505c', borderStrong: '#1f6370', accent: '#2aa198', accentHover: '#35b5ab', onAccent: '#002b36', success: '#859900', warn: '#b58900', danger: '#dc322f', mask: 'rgba(0,0,0,.5)' }
+      }
+    ];
+
+    function readThemeId() {
+      try {
+        const value = globalThis.localStorage?.getItem(THEME_STORAGE_KEY);
+        return typeof value === 'string' && value !== '' ? value : undefined;
+      } catch {
+        return undefined;
+      }
+    }
+
+    function writeThemeId(id) {
+      try {
+        if (id === undefined) globalThis.localStorage?.removeItem(THEME_STORAGE_KEY);
+        else globalThis.localStorage?.setItem(THEME_STORAGE_KEY, id);
+      } catch {
+        // localStorage can be unavailable; the theme still applies for this session.
+      }
+    }
+
+    /**
+     * Theme gallery. It applies a token layer through the official
+     * `ctx.theme.overrideTokens` surface, so the built-in light/dark/system
+     * preference remains authoritative and a theme switch is instant.
+     */
+    function ThemeStudioPanel(props) {
+      const t = props.t;
+      const theme = props.theme;
+      const subscribe = typeof props.subscribe === 'function' ? props.subscribe : () => () => {};
+      const [snapshot, setSnapshot] = React.useState(() => theme.getTheme());
+      const [selected, setSelected] = React.useState(() => props.initialTheme);
+      React.useEffect(() => {
+        const update = () => setSnapshot(theme.getTheme());
+        update();
+        return subscribe(update);
+      }, [theme, subscribe]);
+
+      const scheme = snapshot?.active?.colorScheme === 'dark' ? 'dark' : 'light';
+      const mode = snapshot?.preference === 'light' || snapshot?.preference === 'dark' ? snapshot.preference : 'system';
+      const current = selected === undefined ? undefined : props.themes.find((item) => item.id === selected);
+
+      const apply = (id) => {
+        if (props.applyTheme(id)) setSelected(id);
+      };
+      const reset = () => {
+        props.clearTheme();
+        setSelected(undefined);
+      };
+      const setMode = (id) => {
+        try {
+          props.setMode(id);
+        } catch (error) {
+          console.error('better-dsh: could not change color scheme', error);
+        }
+      };
+
+      return h('div', { className: 'bdsh_themes', 'data-better-dsh': 'themes' },
+        h('div', { className: 'bdsh_themes_head' },
+          h('span', { className: 'bdsh_themes_title' }, t('themes.title')),
+          h('span', { className: 'bdsh_themes_desc' }, t('themes.description'))
+        ),
+        h('div', { className: 'bdsh_themes_modes', role: 'group', 'aria-label': t('themes.title') },
+          [['system', 'themes.system'], ['light', 'themes.light'], ['dark', 'themes.dark']].map(([id, key]) =>
+            h('button', {
+              key: id,
+              type: 'button',
+              className: 'bdsh_themes_mode',
+              'data-selected': mode === id,
+              'aria-pressed': mode === id,
+              onClick: () => setMode(id)
+            }, t(key))
+          )
+        ),
+        h('div', { className: 'bdsh_themes_grid' },
+          h('button', {
+            type: 'button',
+            className: 'bdsh_theme_card',
+            'data-default': true,
+            'data-selected': selected === undefined,
+            onClick: reset
+          },
+            h('div', { className: 'bdsh_theme_body' },
+              h('span', { className: 'bdsh_theme_name' }, t('themes.default')),
+              h('span', { className: 'bdsh_theme_tag' }, t('themes.defaultTag'))
+            )
+          ),
+          props.themes.map((item) => {
+            const palette = item[scheme] ?? item.light;
+            return h('button', {
+              key: item.id,
+              type: 'button',
+              className: 'bdsh_theme_card',
+              'data-selected': selected === item.id,
+              title: item.name,
+              onClick: () => apply(item.id)
+            },
+              h('div', { className: 'bdsh_theme_preview', 'aria-hidden': 'true' },
+                [palette.bg, palette.surface, palette.border, palette.text, palette.accent].map((color, index) =>
+                  h('span', { key: index, className: 'bdsh_theme_swatch', style: { background: color } })
+                )
+              ),
+              h('div', { className: 'bdsh_theme_body' },
+                h('span', { className: 'bdsh_theme_name' }, item.name),
+                h('span', { className: 'bdsh_theme_tag' }, t('themes.adaptive'))
+              )
+            );
+          })
+        ),
+        h('div', { className: 'bdsh_themes_current' },
+          current === undefined ? t('themes.defaultCurrent') : t('themes.current', { name: current.name })
+        ),
+        h('div', { className: 'bdsh_themes_note' }, t('themes.note'))
+      );
+    }
+
+    /** Register the theme layer and the Settings → General gallery. */
+    function installThemeStudio(ctx, t) {
+      const theme = safeService(ctx, 'theme');
+      if (theme === undefined || theme === null) return;
+      if (typeof theme.overrideTokens !== 'function' || typeof theme.setTheme !== 'function' || typeof theme.getTheme !== 'function') return;
+
+      let layer;
+      const applyTheme = (id, persist) => {
+        const family = THEME_FAMILIES.find((item) => item.id === id);
+        if (family === undefined) return false;
+        try {
+          if (layer !== undefined) {
+            layer();
+            layer = undefined;
+          }
+          layer = theme.overrideTokens(PACKAGE_ID + '/theme-studio', themePairs(family));
+          if (persist !== false) writeThemeId(id);
+          return true;
+        } catch (error) {
+          console.error('better-dsh: could not apply theme', error);
+          return false;
+        }
+      };
+      const clearTheme = (persist) => {
+        try {
+          if (layer !== undefined) {
+            layer();
+            layer = undefined;
+          }
+        } catch (error) {
+          console.error('better-dsh: could not clear theme', error);
+        }
+        if (persist !== false) writeThemeId(undefined);
+      };
+
+      ctx.effect(() => () => {
+        if (layer !== undefined) {
+          try { layer(); } catch { /* already released */ }
+          layer = undefined;
+        }
+      }, 'better-dsh: theme layer');
+
+      const saved = readThemeId();
+      if (saved !== undefined) {
+        if (!applyTheme(saved, false)) writeThemeId(undefined);
+      }
+
+      ctx.effect(() => ctx.slots.inject('settings.general.item', () => ctx.slots.register({
+        name: 'settings.general.item',
+        id: 'better-dsh-themes',
+        order: 30,
+        locale: NS,
+        inject: () => ({
+          theme,
+          subscribe: (listener) => ctx.on('theme/change', listener),
+          themes: THEME_FAMILIES,
+          initialTheme: readThemeId(),
+          applyTheme: (id) => applyTheme(id, true),
+          clearTheme: () => clearTheme(true),
+          setMode: (id) => theme.setTheme(id)
+        })
+      }, ThemeStudioPanel)), 'better-dsh: theme studio');
+    }
+    //#endregion theme studio
+
+
     return {
       inject: ['slots', 'locale', 'sidebarRightTabs', 'sidebarRight', 'remote.workspaceFiles'],
       apply(ctx) {
         ctx.effect(() => ctx.locale.register(NS, { zh, en }), 'better-dsh: copy');
         const t = ctx.locale.bind(NS);
         installFontSettings(ctx, t);
+        installThemeStudio(ctx, t);
         const tabs = ctx.get('sidebarRightTabs');
         if (tabs === undefined) return;
 

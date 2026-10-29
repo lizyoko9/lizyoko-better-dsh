@@ -36,6 +36,14 @@
 - 「恢复默认」清空三个字体并恢复 14 / 11 / 13 px。
 - 写入 DSH 自己的 `ui-theme` 设置，持久化并即时生效。
 
+### 主题工作室
+
+设置 → 通用新增类似 Obsidian 的主题画廊：
+
+- 内置 Obsidian、Nord、Catppuccin、Rosé Pine、Tokyo Night、Solarized，每套都有亮色和暗色变体。
+- 主题通过 `ctx.theme.overrideTokens` 作为别名 token 层应用；DSH 自带的亮色/暗色/系统仍然生效，配色会跟随系统切换。
+- 「DSH 默认」卡片会移除覆盖层；自定义主题只记录在当前浏览器。
+
 ## 安装
 
 在 **Plugins** 页面填入：
