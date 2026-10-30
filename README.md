@@ -44,13 +44,14 @@ Settings → General now has an Obsidian-style theme gallery:
 - The theme is an alias-token layer applied through `ctx.theme.overrideTokens`; DSH's own light/dark/system preference stays authoritative and the palette follows the OS scheme.
 - A "DSH default" card removes the layer. The selected custom theme is remembered in this browser.
 
-### Glass material
+### macOS glass material
 
-Theme Studio also has a **Material · Glass** section:
+Theme Studio also has a **Material · macOS** section:
 
-- Toggle frosted glass, pick Soft / Regular / Strong, and optionally enable Liquid sheen and Ambient glow.
-- The glass layer adds translucent panels, backdrop blur, a specular top edge and an ambient color field behind the UI; it composes with every theme.
-- Stored per browser. Backdrop blur is GPU-heavy; use Soft or disable ambient glow on slower machines.
+- Toggle native-style vibrancy, pick Soft / Regular / Strong, and optionally enable a specular sheen or desktop glow.
+- The layer uses neutral translucency, 0.5px hairline rims, soft shadows, muted wallpaper tones and a light grain — closer to macOS `NSVisualEffectView` than a colorful glass skin.
+- It composes with every theme and adapts to light/dark mode.
+- Stored per browser. Backdrop blur is GPU-heavy; use Soft or disable the desktop glow on slower machines.
 
 ## Install
 

@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.3 — 2026-10-30
+
+- Rework the glass material into a macOS-native vibrancy style: neutral theme-derived tint, 40–54px blur, 0.5px hairline rims, soft shadows, muted wallpaper and a light grain.
+- Drop the saturated rainbow/conic ambient layer and the heavy screen-blended highlights; the “liquid” look is now an optional subtle specular sheen.
+- Rename the section to “Material · macOS”, with Desktop glow / Specular sheen controls.
+
 ## 0.4.2 — 2026-10-29
 
 新增 **玻璃材质**（设置 → 通用 → 材质 · 玻璃）。
