@@ -1,19 +1,10 @@
 # Changelog
 
-## 0.4.3 — 2026-10-30
+## 0.4.4 — 2026-10-30
 
-- Rework the glass material into a macOS-native vibrancy style: neutral theme-derived tint, 40–54px blur, 0.5px hairline rims, soft shadows, muted wallpaper and a light grain.
-- Drop the saturated rainbow/conic ambient layer and the heavy screen-blended highlights; the “liquid” look is now an optional subtle specular sheen.
-- Rename the section to “Material · macOS”, with Desktop glow / Specular sheen controls.
-
-## 0.4.2 — 2026-10-29
-
-新增 **玻璃材质**（设置 → 通用 → 材质 · 玻璃）。
-
-- 毛玻璃开关，轻柔 / 标准 / 强三档，独立控制「液态高光」和「环境光斑」。
-- 半透明面板、背景模糊、顶部高光、内描边与环境色光；和任意主题叠加。
-- 透明化主对话/右侧栏根节点，让环境光和桌面透出来；同时保留减少动态效果偏好。
-- 选择保存在当前浏览器；HMR 下即时生效。
+- Remove the glass-material experiment entirely: the Material · macOS UI, CSS token layer, native mode, persistence and related copy.
+- Clean up the old `better-dsh.glass.v1` localStorage entry and `data-bdsh-glass` / `data-bdsh-native` attributes on load.
+- Theme Studio remains unchanged.
 
 ## 0.4.1 — 2026-10-29
 
